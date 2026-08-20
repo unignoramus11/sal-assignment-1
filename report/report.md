@@ -70,37 +70,37 @@ portions and rises sharply at exactly four places, namely /s/ at 2.9 s, /θ/ at 
 
 ## (c) Averages within each phoneme
 
-| phone | class | voicing | duration (ms) | mean energy | mean ZCR |
-|---|---|---|---|---|---|
-| ð | non-vowel | voiced | 39.9 | 1.93e-02 | 0.0323 |
-| ə | vowel | voiced | 304.3 | 5.62e-01 | 0.0072 |
-| b | non-vowel | voiced | 20.0 | 1.87e-01 | 0.0057 |
-| ɪ | vowel | voiced | 229.5 | 1.05e+00 | 0.0165 |
-| ɡ | non-vowel | voiced | 84.8 | 2.81e-02 | 0.0230 |
-| p | non-vowel | unvoiced | 114.7 | 7.43e-03 | 0.0084 |
-| ɪ | vowel | voiced | 259.4 | 6.59e-01 | 0.0127 |
-| ɡ | non-vowel | voiced | 84.8 | 6.08e-02 | 0.0126 |
-| s | non-vowel | unvoiced | 139.7 | 2.21e-02 | 0.1719 |
-| æ | vowel | voiced | 174.6 | 9.77e-01 | 0.0264 |
-| t | non-vowel | unvoiced | 89.8 | 2.73e-02 | 0.0143 |
-| ɒ | vowel | voiced | 69.8 | 3.99e-01 | 0.0125 |
-| n | non-vowel | voiced | 54.9 | 8.31e-01 | 0.0057 |
-| ə | vowel | voiced | 84.8 | 6.67e-01 | 0.0043 |
-| θ | non-vowel | unvoiced | 44.9 | 5.29e-02 | 0.0369 |
-| ɪ | vowel | voiced | 94.8 | 8.18e-01 | 0.0190 |
-| k | non-vowel | unvoiced | 119.7 | 9.16e-03 | 0.0153 |
-| ʃ | non-vowel | unvoiced | 199.5 | 7.02e-02 | 0.1589 |
-| iː | vowel | voiced | 159.6 | 4.58e-01 | 0.0080 |
-| t | non-vowel | unvoiced | 194.6 | 1.68e-02 | 0.0336 |
+| phone | class     | voicing  | duration (ms) | mean energy | mean ZCR |
+| ----- | --------- | -------- | ------------- | ----------- | -------- |
+| ð     | non-vowel | voiced   | 39.9          | 1.93e-02    | 0.0323   |
+| ə     | vowel     | voiced   | 304.3         | 5.62e-01    | 0.0072   |
+| b     | non-vowel | voiced   | 20.0          | 1.87e-01    | 0.0057   |
+| ɪ     | vowel     | voiced   | 229.5         | 1.05e+00    | 0.0165   |
+| ɡ     | non-vowel | voiced   | 84.8          | 2.81e-02    | 0.0230   |
+| p     | non-vowel | unvoiced | 114.7         | 7.43e-03    | 0.0084   |
+| ɪ     | vowel     | voiced   | 259.4         | 6.59e-01    | 0.0127   |
+| ɡ     | non-vowel | voiced   | 84.8          | 6.08e-02    | 0.0126   |
+| s     | non-vowel | unvoiced | 139.7         | 2.21e-02    | 0.1719   |
+| æ     | vowel     | voiced   | 174.6         | 9.77e-01    | 0.0264   |
+| t     | non-vowel | unvoiced | 89.8          | 2.73e-02    | 0.0143   |
+| ɒ     | vowel     | voiced   | 69.8          | 3.99e-01    | 0.0125   |
+| n     | non-vowel | voiced   | 54.9          | 8.31e-01    | 0.0057   |
+| ə     | vowel     | voiced   | 84.8          | 6.67e-01    | 0.0043   |
+| θ     | non-vowel | unvoiced | 44.9          | 5.29e-02    | 0.0369   |
+| ɪ     | vowel     | voiced   | 94.8          | 8.18e-01    | 0.0190   |
+| k     | non-vowel | unvoiced | 119.7         | 9.16e-03    | 0.0153   |
+| ʃ     | non-vowel | unvoiced | 199.5         | 7.02e-02    | 0.1589   |
+| iː    | vowel     | voiced   | 159.6         | 4.58e-01    | 0.0080   |
+| t     | non-vowel | unvoiced | 194.6         | 1.68e-02    | 0.0336   |
 
 The same values grouped by class.
 
-| grouping | n | mean energy | mean ZCR |
-|---|---|---|---|
-| vowel | 8 | 6.98e-01 | 0.0133 |
-| non-vowel | 12 | 1.11e-01 | 0.0432 |
-| voiced | 13 | 5.16e-01 | 0.0143 |
-| unvoiced | 7 | 2.94e-02 | 0.0627 |
+| grouping  | n   | mean energy | mean ZCR |
+| --------- | --- | ----------- | -------- |
+| vowel     | 8   | 6.98e-01    | 0.0133   |
+| non-vowel | 12  | 1.11e-01    | 0.0432   |
+| voiced    | 13  | 5.16e-01    | 0.0143   |
+| unvoiced  | 7   | 2.94e-02    | 0.0627   |
 
 ![Per-phoneme averages grouped by class. Bars are group means with SD, dots are individual phonemes.](../plots/q1_class_comparison.png)
 
@@ -139,16 +139,16 @@ frication.
 The same sentence was recorded whispered and segmented the same way
 (`textgrids/q2_whisper.TextGrid`). The two recordings are compared below.
 
-| measure | normal | whisper |
-|---|---|---|
-| speech duration | 3.238 s | 3.203 s |
-| voiced frames | 132 / 549 (24.0%) | 2 / 580 (0.3%) |
-| mean F0 | 101.9 Hz | not measurable |
-| RMS | −33.4 dB | −45.0 dB |
-| spectral centroid | 633 Hz | 829 Hz |
-| energy below 1 kHz vs above | +9.5 dB | −5.0 dB |
-| vowel / non-vowel energy ratio | 6.3 | 1.6 |
-| voiced / unvoiced energy ratio | 17.6 | 1.0 |
+| measure                        | normal            | whisper        |
+| ------------------------------ | ----------------- | -------------- |
+| speech duration                | 3.238 s           | 3.203 s        |
+| voiced frames                  | 132 / 549 (24.0%) | 2 / 580 (0.3%) |
+| mean F0                        | 101.9 Hz          | not measurable |
+| RMS                            | −33.4 dB          | −45.0 dB       |
+| spectral centroid              | 633 Hz            | 829 Hz         |
+| energy below 1 kHz vs above    | +9.5 dB           | −5.0 dB        |
+| vowel / non-vowel energy ratio | 6.3               | 1.6            |
+| voiced / unvoiced energy ratio | 17.6              | 1.0            |
 
 ![The same sentence, normal above and whispered below](../plots/q2_spectrograms.png)
 
@@ -266,7 +266,7 @@ internal structure of words and how their parts combine. Two derivational affixe
 
 **(b) "bank" as riverside or financial institution.** This is **semantics**, which deals with
 the relation between a form and its meanings. This is homonymy rather than polysemy, as the river sense comes through
-Old Norse and the financial sense through Italian *banca*, so they are two distinct lexical
+Old Norse and the financial sense through Italian _banca_, so they are two distinct lexical
 items sharing a form.
 
 **(c) "The teacher explained the lesson to the students" is SVO.** This is **syntax**, which
@@ -286,7 +286,7 @@ reasoning about context. Nothing in the words encodes a request.
 **phonetics**, specifically articulatory phonetics, since the statement describes where an
 articulator is placed rather than any contrastive function.
 
-The description is not accurate for standard English. /t/ in "talk" is *alveolar*, made with
+The description is not accurate for standard English. /t/ in "talk" is _alveolar_, made with
 the tongue tip at the alveolar ridge behind the teeth, not against the teeth themselves. A
 dental [t̪] does occur in English before a dental fricative, as in "eighth", and is
 characteristic of several varieties including many Indian English accents, but not in
@@ -299,10 +299,10 @@ extracted with Praat's Burg method (5 poles, 5500 Hz maximum, 25 ms window). The
 taken as the longest run within 10 dB of peak energy in a 300–3500 Hz band, and values are
 averaged over the middle third of that region.
 
-| | vowel | duration (ms) | F1 (Hz) | F2 (Hz) | F3 (Hz) | F2 − F1 (Hz) |
-|---|---|---|---|---|---|---|
-| beat | /iː/ | 187.5 | 298 | 2591 | 2833 | 2293 |
-| bit | /ɪ/ | 93.7 | 467 | 1901 | 2564 | 1434 |
+|      | vowel | duration (ms) | F1 (Hz) | F2 (Hz) | F3 (Hz) | F2 − F1 (Hz) |
+| ---- | ----- | ------------- | ------- | ------- | ------- | ------------ |
+| beat | /iː/  | 187.5         | 298     | 2591    | 2833    | 2293         |
+| bit  | /ɪ/   | 93.7          | 467     | 1901    | 2564    | 1434         |
 
 ![Formant tracks with the measured vowel region shaded, and the two vowels in the F1/F2 plane](../plots/q4_formants.png)
 
@@ -340,13 +340,13 @@ quieter voice loses proportionally more high-frequency energy. Tilt matters beca
 on its own cannot distinguish a quieter voice from a microphone that was further away, while
 distance leaves tilt roughly unchanged.
 
-| emotion | dur (s) | mean F0 | min | max | range (Hz) | range (st) | SD | RMS (dB) | tilt (dB) |
-|---|---|---|---|---|---|---|---|---|---|
-| neutral | 1.76 | 110.2 | 96.2 | 119.7 | 23.5 | 3.78 | 5.4 | −30.8 | 20.7 |
-| happy | 1.19 | 150.3 | 98.6 | 241.0 | 142.4 | 15.48 | 31.7 | −25.5 | 20.4 |
-| angry | 1.09 | 151.9 | 104.2 | 201.6 | 97.5 | 11.43 | 20.5 | −22.0 | 15.4 |
-| sad | 1.72 | 125.6 | 111.0 | 175.1 | 64.1 | 7.90 | 12.8 | −34.7 | 23.9 |
-| surprised | 1.32 | 178.2 | 97.6 | 309.3 | 211.7 | 19.96 | 42.3 | −25.5 | 16.9 |
+| emotion   | dur (s) | mean F0 | min   | max   | range (Hz) | range (st) | SD   | RMS (dB) | tilt (dB) |
+| --------- | ------- | ------- | ----- | ----- | ---------- | ---------- | ---- | -------- | --------- |
+| neutral   | 1.76    | 110.2   | 96.2  | 119.7 | 23.5       | 3.78       | 5.4  | −30.8    | 20.7      |
+| happy     | 1.19    | 150.3   | 98.6  | 241.0 | 142.4      | 15.48      | 31.7 | −25.5    | 20.4      |
+| angry     | 1.09    | 151.9   | 104.2 | 201.6 | 97.5       | 11.43      | 20.5 | −22.0    | 15.4      |
+| sad       | 1.72    | 125.6   | 111.0 | 175.1 | 64.1       | 7.90       | 12.8 | −34.7    | 23.9      |
+| surprised | 1.32    | 178.2   | 97.6  | 309.3 | 211.7      | 19.96      | 42.3 | −25.5    | 16.9      |
 
 ![Pitch contours, in real time and time-normalised](../plots/q5_pitch_contours.png)
 
@@ -364,7 +364,7 @@ considerably more high-frequency energy and a harder voice quality. It is also t
 take at 1.09 s.
 
 **Sad** is the clearest case of pitch measures pointing the wrong way. Its mean F0 of
-125.6 Hz is 2.3 semitones *above* neutral, and its range of 7.90 semitones is wider than
+125.6 Hz is 2.3 semitones _above_ neutral, and its range of 7.90 semitones is wider than
 neutral's 3.78, whereas sadness is usually described as lowering mean F0 and narrowing the
 range. The other two measures behave as expected. It is the quietest recording at 3.9 dB
 below neutral, and its tilt of 23.9 dB is the steepest of the five, 3.2 dB above neutral,
@@ -490,7 +490,7 @@ combine audio with the recognised text gain substantially on valence and little 
   it realises, including pitch accents and boundary tones. These are language-specific.
 
 - Morphology contributes in languages with productive evaluative affixes, such as Spanish
-  *-ito*. English has little of this, so the contribution here is small.
+  _-ito_. English has little of this, so the contribution here is small.
 
 - Syntax interacts with prosody in ways that can mislead a system. The Q5 sentence shows the
   risk, since "Did you miss the exam?" carries a terminal rise in all five recordings simply
