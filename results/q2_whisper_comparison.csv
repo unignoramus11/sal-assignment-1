@@ -1,0 +1,7 @@
+condition,burst_s,centroid_hz,frames,interval_end_s,interval_ms,interval_start_s,low_over_high_db,mean_f0,phone,release_to_vowel_ms,rms,rms_db,speech_duration_s,voiced_fraction,voiced_fraction_raw,voiced_frames,word
+normal,,632.6,549,,,,9.53,101.9,,,0.03096,-30.18,3.238,0.2404,0.3115,132,
+normal,1.5774,,,1.5939,20.0,1.5739,,,b,16.5,,,,,,,big
+normal,2.1671,,,2.1876,114.7,2.0728,,,p,20.5,,,,,,,pig
+whisper,,828.6,580,,,,-4.96,89.8,,,0.00831,-41.6,3.203,0.0034,0.1879,2,
+whisper,1.786,,,1.7934,64.9,1.7286,,,b,7.5,,,,,,,big
+whisper,2.195,,,2.2873,109.8,2.1776,,,p,92.3,,,,,,,pig

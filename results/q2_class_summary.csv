@@ -1,0 +1,5 @@
+grouping,group,n,mean_energy,sd_energy,mean_zcr,sd_zcr
+vowel_class,non-vowel,12,1.921679e-02,2.152655e-02,0.042387,0.050409
+vowel_class,vowel,8,3.023707e-02,3.035942e-02,0.037442,0.016563
+voicing,unvoiced,7,2.433607e-02,2.756654e-02,0.059982,0.060047
+voicing,voiced,13,2.324196e-02,2.511173e-02,0.029869,0.018772

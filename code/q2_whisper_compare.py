@@ -114,12 +114,19 @@ def main():
         if not os.path.exists(tg):
             sys.exit(f"missing {tg}; segment it in Praat first")
 
+        hp_wav = os.path.join(ROOT, "recordings_hp", f"{stem}.wav")
         x, fs = load_mono(wav)
+        xhp, _ = load_mono(hp_wav)
         snd = parselmouth.Sound(wav)
+        snd_hp = parselmouth.Sound(hp_wav)
         grid = read_textgrid(tg)
 
-        v = voicing_report(snd)
-        sb = spectral_balance(x, fs)
+        # Voicing is reported both ways on purpose. The raw figure is inflated by
+        # the 100 Hz mains component, which sits inside the pitch search range; the
+        # filtered figure is the one that reflects phonation.
+        v_raw = voicing_report(snd)
+        v = voicing_report(snd_hp)
+        sb = spectral_balance(xhp, fs)
 
         speech = [iv for iv in grid["phone"] if iv.text.strip() != pc.SIL]
         span = speech[-1].xmax - speech[0].xmin
@@ -127,7 +134,8 @@ def main():
         rms = float(np.sqrt(np.mean(seg ** 2)))
 
         row = dict(condition=cond, speech_duration_s=round(span, 3),
-                   rms=round(rms, 5), rms_db=round(20 * np.log10(rms), 2), **v, **sb)
+                   rms=round(rms, 5), rms_db=round(20 * np.log10(rms), 2),
+                   voiced_fraction_raw=v_raw["voiced_fraction"], **v, **sb)
         out_rows.append(row)
 
         per_phone[cond] = {iv.text.strip(): 1000 * iv.duration for iv in speech}
@@ -136,7 +144,8 @@ def main():
         print(f"\n{cond}:")
         print(f"  speech duration     {span:.3f} s")
         print(f"  voiced frames       {v['voiced_frames']} / {v['frames']} "
-              f"({100 * v['voiced_fraction']:.1f}%)")
+              f"({100 * v['voiced_fraction']:.1f}%)   "
+              f"[before hum removal: {100 * v_raw['voiced_fraction']:.1f}%]")
         print(f"  mean F0             {v['mean_f0'] if v['mean_f0'] else 'none detected'}")
         print(f"  RMS                 {row['rms_db']:.1f} dB")
         print(f"  spectral centroid   {sb['centroid_hz']:.0f} Hz")
