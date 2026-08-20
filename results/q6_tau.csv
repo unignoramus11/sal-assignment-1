@@ -1,0 +1,11 @@
+quantity,value,unit
+sampling_rate,8000,Hz
+window_length,20.0,ms
+window_length_samples,160,samples
+hop,1.0,ms
+fft_bin_spacing,50.0,Hz
+true_tau,1.0,s
+tau_peak_track,1.001,s
+tau_band_crossover,1.0001,s
+error_peak_track,1.0,ms
+error_band_crossover,0.13,ms

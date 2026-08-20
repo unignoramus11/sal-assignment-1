@@ -1,0 +1,3 @@
+file,word,ipa,vowel_start_s,vowel_end_s,vowel_duration_ms,f1_mid_hz,f2_mid_hz,f3_mid_hz,f1_steady_hz,f2_steady_hz,f3_steady_hz,f2_minus_f1_hz
+q4_beat,beat,iː,1.4384,1.6259,187.5,296.2,2601.5,2803.4,298.3,2591.3,2832.6,2293.0
+q4_bit,bit,ɪ,1.6028,1.6965,93.7,467.6,1911.3,2624.4,467.4,1901.1,2564.0,1433.7

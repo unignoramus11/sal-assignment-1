@@ -1,0 +1,180 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0.0 
+xmax = 5.531473922902494 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "phone" 
+        xmin = 0.0 
+        xmax = 5.531473922902494 
+        intervals: size = 26 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 1.2297278911564626 
+            text = "sil" 
+        intervals [2]:
+            xmin = 1.2297278911564626 
+            xmax = 1.2696371882086168 
+            text = "ð" 
+        intervals [3]:
+            xmin = 1.2696371882086168 
+            xmax = 1.5739455782312926 
+            text = "ə" 
+        intervals [4]:
+            xmin = 1.5739455782312926 
+            xmax = 1.5939002267573696 
+            text = "b" 
+        intervals [5]:
+            xmin = 1.5939002267573696 
+            xmax = 1.8233786848072562 
+            text = "ɪ" 
+        intervals [6]:
+            xmin = 1.8233786848072562 
+            xmax = 1.908185941043084 
+            text = "ɡ" 
+        intervals [7]:
+            xmin = 1.908185941043084 
+            xmax = 2.07281179138322 
+            text = "sil" 
+        intervals [8]:
+            xmin = 2.07281179138322 
+            xmax = 2.187551020408163 
+            text = "p" 
+        intervals [9]:
+            xmin = 2.187551020408163 
+            xmax = 2.4469614512471654 
+            text = "ɪ" 
+        intervals [10]:
+            xmin = 2.4469614512471654 
+            xmax = 2.531768707482993 
+            text = "ɡ" 
+        intervals [11]:
+            xmin = 2.531768707482993 
+            xmax = 2.885963718820862 
+            text = "sil" 
+        intervals [12]:
+            xmin = 2.885963718820862 
+            xmax = 3.0256462585034014 
+            text = "s" 
+        intervals [13]:
+            xmin = 3.0256462585034014 
+            xmax = 3.200249433106576 
+            text = "æ" 
+        intervals [14]:
+            xmin = 3.200249433106576 
+            xmax = 3.290045351473923 
+            text = "t" 
+        intervals [15]:
+            xmin = 3.290045351473923 
+            xmax = 3.3598866213151926 
+            text = "sil" 
+        intervals [16]:
+            xmin = 3.3598866213151926 
+            xmax = 3.4297278911564626 
+            text = "ɒ" 
+        intervals [17]:
+            xmin = 3.4297278911564626 
+            xmax = 3.4846031746031745 
+            text = "n" 
+        intervals [18]:
+            xmin = 3.4846031746031745 
+            xmax = 3.5694104308390022 
+            text = "ə" 
+        intervals [19]:
+            xmin = 3.5694104308390022 
+            xmax = 3.65421768707483 
+            text = "sil" 
+        intervals [20]:
+            xmin = 3.65421768707483 
+            xmax = 3.6991156462585035 
+            text = "θ" 
+        intervals [21]:
+            xmin = 3.6991156462585035 
+            xmax = 3.7939002267573696 
+            text = "ɪ" 
+        intervals [22]:
+            xmin = 3.7939002267573696 
+            xmax = 3.913628117913832 
+            text = "k" 
+        intervals [23]:
+            xmin = 3.913628117913832 
+            xmax = 4.1131746031746035 
+            text = "ʃ" 
+        intervals [24]:
+            xmin = 4.1131746031746035 
+            xmax = 4.27281179138322 
+            text = "iː" 
+        intervals [25]:
+            xmin = 4.27281179138322 
+            xmax = 4.467369614512472 
+            text = "t" 
+        intervals [26]:
+            xmin = 4.467369614512472 
+            xmax = 5.531473922902494 
+            text = "sil" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "word" 
+        xmin = 0.0 
+        xmax = 5.531473922902494 
+        intervals: size = 14 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 1.2297278911564626 
+            text = "sil" 
+        intervals [2]:
+            xmin = 1.2297278911564626 
+            xmax = 1.5739455782312926 
+            text = "the" 
+        intervals [3]:
+            xmin = 1.5739455782312926 
+            xmax = 1.908185941043084 
+            text = "big" 
+        intervals [4]:
+            xmin = 1.908185941043084 
+            xmax = 2.07281179138322 
+            text = "sil" 
+        intervals [5]:
+            xmin = 2.07281179138322 
+            xmax = 2.531768707482993 
+            text = "pig" 
+        intervals [6]:
+            xmin = 2.531768707482993 
+            xmax = 2.885963718820862 
+            text = "sil" 
+        intervals [7]:
+            xmin = 2.885963718820862 
+            xmax = 3.290045351473923 
+            text = "sat" 
+        intervals [8]:
+            xmin = 3.290045351473923 
+            xmax = 3.3598866213151926 
+            text = "sil" 
+        intervals [9]:
+            xmin = 3.3598866213151926 
+            xmax = 3.4846031746031745 
+            text = "on" 
+        intervals [10]:
+            xmin = 3.4846031746031745 
+            xmax = 3.5694104308390022 
+            text = "a" 
+        intervals [11]:
+            xmin = 3.5694104308390022 
+            xmax = 3.65421768707483 
+            text = "sil" 
+        intervals [12]:
+            xmin = 3.65421768707483 
+            xmax = 3.913628117913832 
+            text = "thick" 
+        intervals [13]:
+            xmin = 3.913628117913832 
+            xmax = 4.467369614512472 
+            text = "sheet" 
+        intervals [14]:
+            xmin = 4.467369614512472 
+            xmax = 5.531473922902494 
+            text = "sil" 
