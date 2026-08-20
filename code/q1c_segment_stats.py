@@ -91,7 +91,7 @@ def plot_groups(rows, out_png, tag):
             a = ax[row][col]
             means = [s[g][f"{metric}_mean"] for g in groups]
             sds = [s[g][f"{metric}_sd"] for g in groups]
-            bars = a.bar(groups, means, yerr=sds, capsize=5,
+            a.bar(groups, means, yerr=sds, capsize=5,
                          color=["tab:blue", "tab:orange"][:len(groups)], alpha=0.85)
             # the individual phones behind the group means
             for k, g in enumerate(groups):

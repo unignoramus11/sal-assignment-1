@@ -144,15 +144,3 @@ def write_textgrid(grid, path):
             ]
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
-
-
-def evenly_spaced(name, labels, xmin, xmax):
-    """A tier with the labels in order and boundaries at equal spacing."""
-    n = len(labels)
-    step = (xmax - xmin) / n
-    tier = Tier(name, xmin, xmax)
-    for k, lab in enumerate(labels):
-        a = xmin + k * step
-        b = xmax if k == n - 1 else xmin + (k + 1) * step
-        tier.intervals.append(Interval(a, b, lab))
-    return tier

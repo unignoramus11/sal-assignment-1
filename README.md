@@ -9,7 +9,7 @@ recordings/   the nine source recordings (44.1 kHz mono, made in Praat)
 textgrids/    hand-marked phoneme and word boundaries for Q1 and Q2
 code/         analysis scripts (Python and Praat)
 results/      measurement tables written by the scripts
-plots/        every figure used in the report
+plots/        figures produced by the analysis scripts
 2023111021_A1_report.pdf
 ```
 

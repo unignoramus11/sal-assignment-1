@@ -179,6 +179,12 @@ balance is shifted 14.5 dB towards high frequencies. Within the whisper the voic
 energy ratio collapses from 17.6 to 1.0, meaning the phonemes that were separated by 12.4 dB
 of energy in normal speech are indistinguishable on that measure once phonation is removed.
 
+![The same per-phoneme grouping as Figure 3, computed on the whispered recording. The voiced and unvoiced energy bars are now the same height.](../plots/q2_class_comparison.png)
+
+The zero-crossing rate survives better than energy. Unvoiced segments still have twice the
+ZCR of voiced ones in the whisper, against 4.4 times in normal speech, because ZCR depends on
+where the energy sits in frequency rather than on whether the source is periodic.
+
 Speaker identity is only partly preserved. The vocal tract is unchanged, so the cues that
 depend on its size and shape survive, meaning formant frequencies and formant spacing,
 together with learned habits of timing and articulation. What is lost is everything
@@ -344,7 +350,7 @@ distance leaves tilt roughly unchanged.
 
 ![Pitch contours, in real time and time-normalised](../plots/q5_pitch_contours.png)
 
-![F0 range and mean by emotion](../plots/q5_pitch_ranges.png)
+![Left, F0 range and mean by emotion. Right, mean F0 against spectral tilt, where happy and angry sit at almost the same pitch but differ clearly in vocal effort.](../plots/q5_pitch_ranges.png)
 
 **Happy** has a mean F0 of 150.3 Hz, 5.4 semitones above neutral, with the range widening
 from 23.5 Hz to 142.4 Hz and the SD from 5.4 Hz to 31.7 Hz. It is 5.3 dB louder than neutral.

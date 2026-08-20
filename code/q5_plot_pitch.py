@@ -219,19 +219,33 @@ def main():
     fig.savefig(out_png, dpi=160)
     plt.close(fig)
 
-    # range and mean at a glance
-    fig, ax = plt.subplots(figsize=(7.5, 4))
+    # left: F0 range and mean. right: mean F0 against tilt, which shows the pairs
+    # that pitch alone cannot separate.
+    fig, ax = plt.subplots(1, 2, figsize=(11, 4.2))
+
     names = [r["emotion"] for r in rows]
-    y = np.arange(len(names))
     for i, r in enumerate(rows):
         c = COLOURS.get(r["emotion"], "black")
-        ax.plot([r["min_f0_hz"], r["max_f0_hz"]], [i, i], lw=6, color=c, alpha=0.45,
-                solid_capstyle="round")
-        ax.plot(r["mean_f0_hz"], i, "o", color=c, ms=9, zorder=3)
-    ax.set_yticks(y); ax.set_yticklabels(names)
-    ax.set_xlabel("F0 (Hz)")
-    ax.set_title("F0 range (bar) and mean (dot) by emotion")
-    ax.grid(axis="x", alpha=0.3)
+        ax[0].plot([r["min_f0_hz"], r["max_f0_hz"]], [i, i], lw=6, color=c, alpha=0.45,
+                   solid_capstyle="round")
+        ax[0].plot(r["mean_f0_hz"], i, "o", color=c, ms=9, zorder=3)
+    ax[0].set_yticks(np.arange(len(names))); ax[0].set_yticklabels(names)
+    ax[0].set_xlabel("F0 (Hz)")
+    ax[0].set_title("F0 range (bar) and mean (dot)")
+    ax[0].grid(axis="x", alpha=0.3)
+
+    for r in rows:
+        c = COLOURS.get(r["emotion"], "black")
+        ax[1].scatter(r["mean_f0_hz"], r["tilt_db"], s=110, color=c, zorder=3)
+        ax[1].annotate(r["emotion"], (r["mean_f0_hz"], r["tilt_db"]),
+                       textcoords="offset points", xytext=(0, 12),
+                       ha="center", fontsize=10, color=c)
+    ax[1].set_xlabel("mean F0 (Hz)")
+    ax[1].set_ylabel("spectral tilt (dB)")
+    ax[1].set_title("mean F0 against vocal effort")
+    ax[1].grid(alpha=0.3)
+    ax[1].margins(0.18)
+
     fig.tight_layout()
     out_png2 = os.path.join(plot_dir, "q5_pitch_ranges.png")
     fig.savefig(out_png2, dpi=160)

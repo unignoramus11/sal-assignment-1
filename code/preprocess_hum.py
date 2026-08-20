@@ -16,7 +16,6 @@ usage: python preprocess_hum.py
 """
 
 import os
-import sys
 
 import numpy as np
 import soundfile as sf

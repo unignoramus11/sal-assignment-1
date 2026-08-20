@@ -47,7 +47,6 @@ def check(wav_path, tg_path):
                 problems.append(f"{tier_name} tier: gap or overlap at {a.xmax:.4f} s")
 
     phone = grid["phone"]
-    durs = np.array([iv.duration for iv in phone])
 
     for iv in phone:
         lab = iv.text.strip()

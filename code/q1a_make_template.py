@@ -16,7 +16,7 @@ from scipy.signal import butter, filtfilt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import phone_classes as pc
-from textgrid_io import TextGrid, Tier, Interval, evenly_spaced, write_textgrid
+from textgrid_io import TextGrid, Tier, Interval, write_textgrid
 
 
 def speech_bounds(x, fs, frame_ms=20.0, thresh_frac=0.08):
