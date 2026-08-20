@@ -69,6 +69,35 @@ def read_pitch(path):
     return np.array(t), np.array(f)
 
 
+def level_and_tilt(wav_path, t0, t1):
+    """Speech-region RMS in dB and spectral tilt.
+
+    Tilt is the energy from 150-1000 Hz relative to 1-5 kHz. Reduced vocal effort
+    raises it, because a quieter voice loses proportionally more high-frequency
+    energy. Moving away from the microphone attenuates both bands about equally,
+    so tilt separates a genuine change in effort from a change in distance.
+    Measured on the hum-filtered signal, and the low band starts at 150 Hz so the
+    100 Hz mains component is excluded either way.
+    """
+    x, fs = sf.read(wav_path)
+    if x.ndim > 1:
+        x = x.mean(axis=1)
+    seg = x[int(t0 * fs):int(t1 * fs)]
+    if len(seg) < int(0.05 * fs):
+        return float("nan"), float("nan")
+    rms_db = 20 * np.log10(np.sqrt(np.mean(seg ** 2)) + 1e-12)
+    w = int(0.025 * fs); hop = int(0.01 * fs)
+    nf = 1 + (len(seg) - w) // hop
+    idx = np.arange(w)[None, :] + hop * np.arange(nf)[:, None]
+    P = np.abs(np.fft.rfft(seg[idx] * np.hamming(w), axis=1)) ** 2
+    f = np.fft.rfftfreq(w, 1.0 / fs)
+    tot = P.sum(axis=1)
+    keep = tot > tot.max() * 0.02
+    lo = P[keep][:, (f >= 150) & (f < 1000)].sum()
+    hi = P[keep][:, (f >= 1000) & (f < 5000)].sum()
+    return rms_db, 10 * np.log10(lo / hi)
+
+
 def semitones(hz, ref):
     return 12.0 * np.log2(hz / ref)
 
@@ -99,9 +128,14 @@ def main():
             continue
         t, f = read_pitch(path)
         wav = os.path.join(rec_dir, f"{key}.wav")
+        hp_wav = os.path.join(os.path.dirname(rec_dir.rstrip("/")) or ".",
+                              "recordings_hp", f"{key}.wav")
+        rms_db = tilt = float("nan")
         if os.path.exists(wav):
             t0, t1 = speech_region(wav)
             f[(t < t0) | (t > t1)] = np.nan
+            src = hp_wav if os.path.exists(hp_wav) else wav
+            rms_db, tilt = level_and_tilt(src, t0, t1)
         f = drop_short_runs(f)
         ok = ~np.isnan(f)
         if ok.sum() == 0:
@@ -122,19 +156,21 @@ def main():
             range_semitones=round(float(semitones(np.nanmax(f), np.nanmin(f))), 2),
             sd_f0_hz=round(float(np.nanstd(f, ddof=1)), 1),
             final_slope_hz_per_s=round(final_slope(t, f), 1),
+            rms_db=round(rms_db, 1),
+            tilt_db=round(tilt, 1),
         ))
 
     if not rows:
         sys.exit("no pitch data found; run the Praat pitch script first")
 
     hdr = (f"{'emotion':<10} {'dur s':>6} {'mean':>7} {'min':>7} {'max':>7} "
-           f"{'range':>7} {'st':>6} {'sd':>6} {'final slope':>12}")
+           f"{'range':>7} {'st':>6} {'sd':>6} {'RMS dB':>8} {'tilt dB':>8}")
     print(hdr); print("-" * len(hdr))
     for r in rows:
         print(f"{r['emotion']:<10} {r['duration_s']:>6.2f} {r['mean_f0_hz']:>7.1f} "
               f"{r['min_f0_hz']:>7.1f} {r['max_f0_hz']:>7.1f} {r['range_hz']:>7.1f} "
               f"{r['range_semitones']:>6.2f} {r['sd_f0_hz']:>6.1f} "
-              f"{r['final_slope_hz_per_s']:>12.1f}")
+              f"{r['rms_db']:>8.1f} {r['tilt_db']:>8.1f}")
 
     base = next((r for r in rows if r["emotion"] == "neutral"), None)
     if base:
@@ -143,9 +179,11 @@ def main():
             if r["emotion"] == "neutral":
                 continue
             dm = 12 * np.log2(r["mean_f0_hz"] / base["mean_f0_hz"])
-            print(f"  {r['emotion']:<10} mean F0 {dm:+.1f} semitones, "
+            print(f"  {r['emotion']:<10} mean F0 {dm:+.1f} st, "
                   f"range {r['range_semitones'] - base['range_semitones']:+.2f} st, "
-                  f"duration {r['duration_s'] - base['duration_s']:+.2f} s")
+                  f"duration {r['duration_s'] - base['duration_s']:+.2f} s, "
+                  f"level {r['rms_db'] - base['rms_db']:+.1f} dB, "
+                  f"tilt {r['tilt_db'] - base['tilt_db']:+.1f} dB")
 
     out_csv = os.path.join(res_dir, "q5_pitch_summary.csv")
     with open(out_csv, "w", newline="") as fh:

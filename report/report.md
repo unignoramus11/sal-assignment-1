@@ -8,6 +8,7 @@ linkcolor: black
 urlcolor: black
 header-includes:
   - \usepackage{float}
+  - \floatplacement{figure}{H}
   - \usepackage{booktabs}
   - \setlength{\emergencystretch}{3em}
 ---
@@ -40,8 +41,6 @@ ZCR on the originals, since filtering would change the quantity Q1 asks for.
 
 Everything regenerates with `code/run_all.sh`.
 
-\newpage
-
 # Question 1
 
 ## (a) Segmentation
@@ -57,16 +56,16 @@ consonant's mean energy down. The TextGrid is `textgrids/q1_normal.TextGrid`.
 
 Both were computed with a 20 ms Hamming window and a 10 ms shift, giving 552 frames for
 the 5.53 s recording. Energy is the sum of squared windowed samples in each frame. ZCR is
-the proportion of adjacent sample pairs that change sign, computed on the unwindowed frame:
-tapering the frame towards zero at its edges introduces sign changes that belong to the
+the proportion of adjacent sample pairs that change sign, computed on the unwindowed frame.
+Tapering the frame towards zero at its edges would introduce sign changes belonging to the
 window rather than to the signal.
 
 ![Waveform, short-time energy and ZCR with the phoneme boundaries marked](../plots/q1b_energy_zcr.png)
 
 The two measures behave in opposite directions. Energy peaks on the vowels and drops by two
 to three orders of magnitude during stop closures. ZCR is near zero through the voiced
-portions and rises sharply at exactly four places: /s/ at 2.9 s, /θ/ at 3.7 s, /ʃ/ at 4.0 s
-and the final /t/ release at 4.4 s.
+portions and rises sharply at exactly four places, namely /s/ at 2.9 s, /θ/ at 3.7 s, /ʃ/ at
+4.0 s and the final /t/ release at 4.4 s.
 
 ## (c) Averages within each phoneme
 
@@ -93,7 +92,7 @@ and the final /t/ release at 4.4 s.
 | iː | vowel | voiced | 159.6 | 4.58e-01 | 0.0080 |
 | t | non-vowel | unvoiced | 194.6 | 1.68e-02 | 0.0336 |
 
-Grouped:
+The same values grouped by class.
 
 | grouping | n | mean energy | mean ZCR |
 |---|---|---|---|
@@ -132,8 +131,6 @@ ten times any voiced segment. Interestingly /θ/ reaches only 0.0369, well below
 two fricatives, because it is much weaker and its frames are partly filled by the low-level
 background rather than by frication.
 
-\newpage
-
 # Question 2
 
 The same sentence was recorded whispered and segmented the same way
@@ -144,7 +141,7 @@ The same sentence was recorded whispered and segmented the same way
 | speech duration | 3.238 s | 3.203 s |
 | voiced frames | 132 / 549 (24.0%) | 2 / 580 (0.3%) |
 | mean F0 | 101.9 Hz | not measurable |
-| RMS | −30.2 dB | −41.6 dB |
+| RMS | −33.4 dB | −45.0 dB |
 | spectral centroid | 633 Hz | 829 Hz |
 | energy below 1 kHz vs above | +9.5 dB | −5.0 dB |
 | vowel / non-vowel energy ratio | 6.3 | 1.6 |
@@ -174,10 +171,10 @@ them intonation, stress, and the pitch contour that separates a statement from a
 is the difference between 24.0% voiced frames at a mean F0 of 101.9 Hz and 0.3% voiced
 frames with no measurable F0.
 
-The energy consequences are large. The whisper is 11.4 dB quieter overall, and its spectral
+The energy consequences are large. The whisper is 11.6 dB quieter overall, and its spectral
 balance is shifted 14.5 dB towards high frequencies. Within the whisper the voiced/unvoiced
-energy ratio collapses from 17.6 to 1.0, meaning the phonemes that were separated by 25 dB of
-energy in normal speech are indistinguishable on that measure once phonation is removed.
+energy ratio collapses from 17.6 to 1.0, meaning the phonemes that were separated by 12.4 dB
+of energy in normal speech are indistinguishable on that measure once phonation is removed.
 
 Speaker identity is only partly preserved. The vocal tract is unchanged, so the cues that
 depend on its size and shape survive, meaning formant frequencies and formant spacing,
@@ -196,7 +193,7 @@ cartilaginous portion, called the glottal chink. Air forced through this narrow 
 becomes turbulent, and that turbulence is the sound source. It is aperiodic, which is why
 the whisper has no F0 to measure.
 
-Other states of the vocal folds:
+The vocal folds take several other states.
 
 - **Open (abduction)**, as in quiet breathing and in voiceless sounds such as /s/ and /p/,
   where the folds are apart and air passes without obstruction.
@@ -212,12 +209,13 @@ Other states of the vocal folds:
 ## (d) Can every English word be distinguished in a whisper? "pig" against "big"
 
 Not equally well. Any contrast that depends on voicing loses its primary cue, because
-voicing is precisely what whispering removes. English has many such minimal pairs:
-pig/big, tie/die, coat/goat, fan/van, sue/zoo, and word-finally tap/tab and seat/seed.
+voicing is precisely what whispering removes. English has many such minimal pairs,
+among them pig/big, tie/die, coat/goat, fan/van, sue/zoo, and word-finally tap/tab and
+seat/seed.
 
 For "pig" against "big" the primary distinction is the presence of vocal fold vibration
 during and immediately after the closure. In the whisper that cue is gone from both, so a
-listener has to rely on secondary cues, which survive but are weaker:
+listener has to rely on secondary cues, which survive but are weaker.
 
 - **Voice onset time.** In the recordings here, the release-to-vowel interval is 16 ms for
   /b/ against 20 ms for /p/ in normal speech, but 8 ms against 92 ms in the whisper. The
@@ -251,8 +249,6 @@ the imitator. This is why impressions convince human listeners far more easily t
 fool a speaker verification system, which measures exactly the spectral detail the mimic
 cannot alter.
 
-\newpage
-
 # Question 3
 
 **(a) "reusable" = "re-" + "use" + "-able".** This is **morphology**, which deals with the
@@ -277,13 +273,15 @@ every language.
 is a statement, while the intended force is a request. This is an indirect speech act, resolved by
 reasoning about context. Nothing in the words encodes a request.
 
-**(f) [t] in "talk" made with the tongue behind the upper front teeth.** Phonetics,
-specifically articulatory. The description is inaccurate for standard English: /t/ is
-**alveolar**, with the tongue tip at the alveolar ridge, not at the teeth. Dental [t̪] does
-occur in English before a dental fricative ("eighth") and in several varieties including
-many Indian English accents, but not in "talk".
+**(f) [t] in "talk" made with the tongue behind the upper front teeth.** This is
+**phonetics**, specifically articulatory phonetics, since the statement describes where an
+articulator is placed rather than any contrastive function.
 
-\newpage
+The description is not accurate for standard English. /t/ in "talk" is *alveolar*, made with
+the tongue tip at the alveolar ridge behind the teeth, not against the teeth themselves. A
+dental [t̪] does occur in English before a dental fricative, as in "eighth", and is
+characteristic of several varieties including many Indian English accents, but not in
+"talk".
 
 # Question 4
 
@@ -299,7 +297,7 @@ averaged over the middle third of that region.
 
 ![Formant tracks with the measured vowel region shaded, and the two vowels in the F1/F2 plane](../plots/q4_formants.png)
 
-Differences observed:
+The two vowels differ in four ways.
 
 - **F1 is 169 Hz higher in "bit".** F1 varies inversely with tongue height, so /ɪ/ has a
   lower tongue body. /iː/ is close, /ɪ/ near-close.
@@ -320,60 +318,73 @@ The result depends on the maximum-formant setting. At 5000 Hz the tracker gave F
 for "beat", lower than for "bit" and contradicting the spectrogram, where the second formant
 is clearly near 2600 Hz. At 5500 Hz it follows the visible bands correctly for both words.
 
-\newpage
-
 # Question 5
 
 "Did you miss the exam?" was recorded neutrally as a baseline and in four emotions. Pitch was
 extracted in Praat with `To Pitch` at a 10 ms step, floor 70 Hz, ceiling 500 Hz. Frames
 outside the speech region and voiced runs shorter than three frames were discarded.
 
-| emotion | duration (s) | mean F0 (Hz) | min | max | range (Hz) | range (st) | SD (Hz) |
-|---|---|---|---|---|---|---|---|
-| neutral | 1.76 | 110.2 | 96.2 | 119.7 | 23.5 | 3.78 | 5.4 |
-| happy | 1.19 | 150.3 | 98.6 | 241.0 | 142.4 | 15.48 | 31.7 |
-| angry | 1.09 | 151.9 | 104.2 | 201.6 | 97.5 | 11.43 | 20.5 |
-| sad | 1.34 | 113.1 | 83.8 | 134.4 | 50.6 | 8.18 | 12.2 |
-| surprised | 1.32 | 178.2 | 97.6 | 309.3 | 211.7 | 19.96 | 42.3 |
+Pitch alone turned out not to describe these recordings well, so two further measures are
+included. RMS is the loudness over the speech region. Tilt is the energy from 150 to 1000 Hz
+relative to 1 to 5 kHz, which rises when the speaker uses less vocal effort, because a
+quieter voice loses proportionally more high-frequency energy. Tilt matters because loudness
+on its own cannot distinguish a quieter voice from a microphone that was further away, while
+distance leaves tilt roughly unchanged.
+
+| emotion | dur (s) | mean F0 | min | max | range (Hz) | range (st) | SD | RMS (dB) | tilt (dB) |
+|---|---|---|---|---|---|---|---|---|---|
+| neutral | 1.76 | 110.2 | 96.2 | 119.7 | 23.5 | 3.78 | 5.4 | −30.8 | 20.7 |
+| happy | 1.19 | 150.3 | 98.6 | 241.0 | 142.4 | 15.48 | 31.7 | −25.5 | 20.4 |
+| angry | 1.09 | 151.9 | 104.2 | 201.6 | 97.5 | 11.43 | 20.5 | −22.0 | 15.4 |
+| sad | 1.72 | 125.6 | 111.0 | 175.1 | 64.1 | 7.90 | 12.8 | −34.7 | 23.9 |
+| surprised | 1.32 | 178.2 | 97.6 | 309.3 | 211.7 | 19.96 | 42.3 | −25.5 | 16.9 |
 
 ![Pitch contours, in real time and time-normalised](../plots/q5_pitch_contours.png)
 
 ![F0 range and mean by emotion](../plots/q5_pitch_ranges.png)
 
-**Happy** has a mean F0 of 150.3 Hz, 5.4 semitones above neutral. Its range is 142.4 Hz
-against neutral's 23.5 Hz, and its SD is 31.7 Hz against 5.4 Hz. The slope over the final
-quarter of the utterance is +313 Hz/s, the steepest of the five.
+**Happy** has a mean F0 of 150.3 Hz, 5.4 semitones above neutral, with the range widening
+from 23.5 Hz to 142.4 Hz and the SD from 5.4 Hz to 31.7 Hz. It is 5.3 dB louder than neutral.
+The contour moves continuously instead of holding near a level.
 
-**Angry** raises the mean by a similar amount, 5.6 semitones, but its range is narrower than
-happy's, 97.5 Hz against 142.4 Hz. The two takes are 0.2 semitones apart in mean F0 and
-4 semitones apart in range. Angry is also the shortest take, at 1.09 s.
+**Angry** sits at almost the same mean F0 as happy, 151.9 Hz against 150.3 Hz, a difference
+of 0.2 semitones. Its range is narrower, 97.5 Hz against 142.4 Hz. What separates it most
+clearly from happy is effort rather than pitch. Angry is the loudest recording at 8.8 dB
+above neutral, and its tilt of 15.4 dB is 5 dB flatter than happy's 20.4 dB, meaning
+considerably more high-frequency energy and a harder voice quality. It is also the shortest
+take at 1.09 s.
 
-**Sad** has a mean F0 of 113.1 Hz, 0.4 semitones above neutral, and a range of 50.6 Hz
-against neutral's 23.5 Hz. Neither figure matches the usual description, in which sadness
-lowers mean F0 below neutral and narrows the range. Duration does not separate the two either:
-at 1.34 s the sad take is the longest of the four emotional recordings, but the neutral
-baseline is longer still at 1.76 s.
+**Sad** is the clearest case of pitch measures pointing the wrong way. Its mean F0 of
+125.6 Hz is 2.3 semitones *above* neutral, and its range of 7.90 semitones is wider than
+neutral's 3.78, whereas sadness is usually described as lowering mean F0 and narrowing the
+range. The other two measures behave as expected. It is the quietest recording at 3.9 dB
+below neutral, and its tilt of 23.9 dB is the steepest of the five, 3.2 dB above neutral,
+which indicates reduced vocal effort rather than a change in microphone distance. At 1.72 s
+it is also the slowest of the four emotional takes, matching the neutral baseline's 1.76 s
+while every other emotion is at least 0.4 s shorter.
 
-The sad recording is therefore not well separated from neutral on any of these measures. One
-likely reason is that it was produced on request rather than felt. A performed sad reading
-tends to be quieter and slower without lowering the pitch, and the pitch measures here do not
-capture the loudness and voice-quality changes that would carry the difference.
+The sad delivery is therefore carried by rate and vocal effort, while F0 works against it. A
+description based on pitch alone would misrepresent this recording.
 
 **Surprised** has the highest mean F0 at 178.2 Hz, 8.3 semitones above neutral. It also has
 the widest range at 211.7 Hz, the highest single value at 309.3 Hz and the largest SD at
 42.3 Hz. The contour reaches its maximum about 20% of the way through the utterance and falls
 after that.
 
-The happy, angry and surprised takes are 5.4 to 8.3 semitones above neutral in mean F0, and
-the sad take is 0.4 semitones above it. Mean F0 therefore separates these four recordings into
-two groups, but it does not distinguish the first three from each other, since happy and angry
-are only 0.2 semitones apart. Their ranges differ by 4 semitones, so range is the more useful
-measure for telling those two apart.
+## What the measures do and do not separate
+
+Mean F0 sorts the five recordings roughly by how activated the delivery is, with happy,
+angry and surprised 5.4 to 8.3 semitones above neutral. It fails in two places. It cannot
+tell happy from angry, which are 0.2 semitones apart, and it puts sad on the wrong side of
+neutral entirely.
+
+Adding the other two measures resolves both. Tilt separates happy from angry by 5 dB, and
+loudness and tilt together identify sad as the quietest and least effortful of the five even
+though its pitch is raised. Each of the four emotions is uniquely identified by the
+combination, while no single measure achieves this on its own.
 
 All five recordings end with a rise on "exam". The rise is present in the neutral baseline as
 well, so it belongs to the interrogative sentence type rather than to any of the emotions.
-
-\newpage
 
 # Question 6
 
@@ -418,66 +429,88 @@ are 200 Hz apart, four times the bin spacing.
 
 ![The same signal at three window lengths](../plots/q6_window_tradeoff.png)
 
-\newpage
-
 # Question 7
 
 The application chosen is **speech emotion recognition**.
 
 **(a) The application.** Speech emotion recognition (SER) infers a speaker's affective state
-from the speech signal, either as discrete labels (anger, happiness, sadness, neutral) or as
-continuous dimensions, usually arousal and valence. The dimensional form is often preferred
-because discrete labels transfer poorly across languages and cultures. Deployed uses include
-call-centre analytics, where rising frustration flags a call for escalation; clinical
-screening, where flattened prosody is studied as a marker of depression; driver monitoring;
-and conversational agents that adapt when a user is upset. In these systems the words are
-already available from speech recognition, and SER is added to recover information that the
-transcript does not carry.
+from the speech signal. It is framed either as discrete labels such as anger, happiness,
+sadness and neutral, or as continuous dimensions, usually arousal and valence. The
+dimensional form is often preferred because discrete labels transfer poorly across languages
+and cultures.
 
-**(b) Features used.** *Prosodic*: mean F0, F0 range and variability, contour shape and
-slope, intensity, speech rate and pause structure. These carry arousal well; the Q5
-measurements above are exactly this kind of input. *Spectral*: MFCCs with their derivatives,
-formants, spectral centroid and spectral tilt, the last tracking vocal effort somewhat
-independently of pitch. *Voice quality*: jitter, shimmer and harmonics-to-noise ratio, which
-describe how the folds vibrate rather than how fast, and separate states that prosody
-confuses, such as sadness and tenderness at similar F0. *Learned features*: rather
-than measuring these quantities by hand, recent systems let a neural network learn its own
-representation from large amounts of unlabelled speech, using models such as wav2vec 2.0 or
-HuBERT. These perform better on most benchmarks but are harder to interpret when they fail.
+Deployed uses include call-centre analytics, where rising frustration flags a call for
+escalation, clinical screening, where flattened prosody is studied as a marker of depression,
+driver monitoring, and conversational agents that adapt when a user is upset. In these
+systems the words are already available from speech recognition, and SER is added to recover
+information that the transcript does not carry.
 
-The two dimensions are not equally easy to recover. Arousal is predicted well from prosody
-and energy alone.
-Valence is predicted poorly from acoustics, since high-arousal positive and negative states
-look similar in F0 and intensity, which is why systems combining audio with the recognised
-text gain substantially on valence and little on arousal. The Q5 data shows the same
-thing, with happy and angry differing by only 0.2 semitones in mean F0.
+**(b) Features used.** Four groups of features are normally combined.
 
-**(c) Contributions from the levels of description.** *Phonetics*: voice quality and
-articulation, with high arousal expanding the vowel space and sadness producing reduced,
-centralised articulation. *Phonology*: what matters is not raw F0 but the intonational
-contours it realises, including pitch accents and boundary tones, and these are
-language-specific. *Morphology*: evaluative affixes carry affect in languages that have them
-productively, such as Spanish *-ito*; English has little of this. *Syntax*: sentence type
-interacts with prosody, and the Q5 sentence illustrates the risk, since "Did you miss the
-exam?" carries a terminal rise in all five recordings simply because it is an interrogative;
-a system treating a terminal rise as evidence of surprise would misread every one.
-*Semantics*: lexical items carry valence directly, which is the main route by which valence
-becomes recoverable. *Pragmatics*: sarcasm is defined by a mismatch between literal content
-and intended meaning, so detecting it needs both channels plus context; cultural display
-rules also govern how much emotion is expressed at all.
+- Prosodic features are mean F0, F0 range and variability, contour shape and slope,
+  intensity, speech rate and pause structure. These carry arousal well, and the Q5
+  measurements are exactly this kind of input.
 
-**(d) A limitation.** Systems generalise poorly beyond their training corpus, and the cause
-is the data. Emotion cannot be induced on demand reliably or ethically, and there is no
-ground truth beyond annotator agreement, so most corpora use acted speech, with actors
-reading fixed sentences in a target emotion. Acted emotion is exaggerated and prototypical. This makes it
-easy to classify, but it differs from spontaneous speech, in which emotions are subtler, often
-blended, and frequently suppressed. Accuracy drops substantially when models are tested
-cross-corpus. Speaker, language and cultural variation is also large relative to the emotion
-effect, and inter-annotator agreement is only moderate, which caps the accuracy any system
-can meaningfully claim.
+- Spectral features are MFCCs with their derivatives, formants, spectral centroid and
+  spectral tilt. Tilt is useful because it tracks vocal effort somewhat independently of
+  pitch.
 
-The Q5 recordings show the same problem on a small scale. They were produced deliberately
-with the target emotion known in advance, and are almost certainly more distinct from one
-another than the same question asked in each of those states would be. The sad recording
-differs from neutral by only 0.4 semitones in mean F0, which suggests the delivery was
-performed rather than felt.
+- Voice quality features are jitter, shimmer and the harmonics-to-noise ratio. These describe
+  how the vocal folds vibrate rather than how fast, and they separate states that prosody
+  confuses, such as sadness and tenderness at a similar F0.
+
+- Learned features replace hand-measured quantities altogether. Recent systems let a neural
+  network learn its own representation from large amounts of unlabelled speech, using models
+  such as wav2vec 2.0 or HuBERT. These perform better on most benchmarks but are harder to
+  interpret when they fail.
+
+No single measure is enough on its own. The Q5 recordings show this directly, where mean F0
+puts happy and angry 0.2 semitones apart while spectral tilt separates them by 5 dB.
+
+The two dimensions are also not equally easy to recover. Arousal is predicted well from
+prosody and energy together. Valence is predicted poorly from acoustics, since high-arousal
+positive and negative states look similar in F0 and intensity. This is why systems that
+combine audio with the recognised text gain substantially on valence and little on arousal.
+
+**(c) Contributions from the levels of description.**
+
+- Phonetics contributes voice quality and articulation. High arousal expands the vowel space,
+  while sadness produces reduced, centralised articulation.
+
+- Phonology matters because what carries emotion is not raw F0 but the intonational contours
+  it realises, including pitch accents and boundary tones. These are language-specific.
+
+- Morphology contributes in languages with productive evaluative affixes, such as Spanish
+  *-ito*. English has little of this, so the contribution here is small.
+
+- Syntax interacts with prosody in ways that can mislead a system. The Q5 sentence shows the
+  risk, since "Did you miss the exam?" carries a terminal rise in all five recordings simply
+  because it is an interrogative. A system treating a terminal rise as evidence of surprise
+  would misread every one of them.
+
+- Semantics contributes lexical valence, which is the main route by which valence becomes
+  recoverable at all.
+
+- Pragmatics is needed for sarcasm, which is defined by a mismatch between literal content and
+  intended meaning, so detecting it requires both channels plus context. Cultural display
+  rules also govern how much emotion is expressed in the first place.
+
+**(d) A limitation.** Systems generalise poorly beyond their training corpus, and the cause is
+the data. Emotion cannot be induced on demand reliably or ethically, and there is no ground
+truth beyond annotator agreement, so most corpora use acted speech, with actors reading fixed
+sentences in a target emotion.
+
+Acted emotion is exaggerated and prototypical. This makes it easy to classify, but it differs
+from spontaneous speech, in which emotions are subtler, often blended, and frequently
+suppressed. Accuracy drops substantially when models are tested cross-corpus. Speaker,
+language and cultural variation is also large relative to the emotion effect, and
+inter-annotator agreement is only moderate, which caps the accuracy any system can
+meaningfully claim.
+
+The Q5 recordings show the same problem on a small scale. They were produced deliberately with
+the target emotion known in advance, and are almost certainly more distinct from one another
+than the same question asked in each of those states would be. The sad recording is the
+clearest warning against reading too much into any one feature, since its mean F0 moved
+2.3 semitones in the opposite direction to the textbook description while loudness and vocal
+effort moved as expected. A model trained on a corpus where sadness always lowers F0 would
+classify that recording wrongly.

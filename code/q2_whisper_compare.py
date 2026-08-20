@@ -130,7 +130,9 @@ def main():
 
         speech = [iv for iv in grid["phone"] if iv.text.strip() != pc.SIL]
         span = speech[-1].xmax - speech[0].xmin
-        seg = x[int(speech[0].xmin * fs):int(speech[-1].xmax * fs)]
+        # measured on the hum-filtered signal so that the level is comparable with
+        # the spectral figures below and with Q5
+        seg = xhp[int(speech[0].xmin * fs):int(speech[-1].xmax * fs)]
         rms = float(np.sqrt(np.mean(seg ** 2)))
 
         row = dict(condition=cond, speech_duration_s=round(span, 3),
@@ -156,8 +158,8 @@ def main():
             if m:
                 print(f"  /{label}/ in \"{word}\": interval {m['interval_ms']:.0f} ms, "
                       f"release to vowel {m['release_to_vowel_ms']:.0f} ms")
-                m.update(condition=cond, word=word)
-                out_rows.append({"condition": f"{cond}_stop_{word}", **m})
+                m.update(word=word)
+                out_rows.append({**m, "condition": f"{cond}_stop_{word}"})
 
     with open(os.path.join(RESULTS, "q2_whisper_comparison.csv"), "w", newline="") as fh:
         keys = sorted({k for r in out_rows for k in r})
