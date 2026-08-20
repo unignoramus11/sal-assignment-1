@@ -72,7 +72,8 @@ def plot(res, tg_path, out_png, title):
 
     grid = read_textgrid(tg_path) if tg_path and os.path.exists(tg_path) else None
 
-    fig, ax = plt.subplots(3, 1, figsize=(11, 7.5), sharex=True)
+    plt.rcParams.update({"font.size": 11})
+    fig, ax = plt.subplots(3, 1, figsize=(9.5, 6.4), sharex=True)
 
     ax[0].plot(t, x, lw=0.3, color="black")
     ax[0].set_ylabel("amplitude")
@@ -97,8 +98,8 @@ def plot(res, tg_path, out_png, title):
         for iv in phone:
             if iv.text.strip() == pc.SIL:
                 continue
-            ax[0].text(iv.midpoint, ax[0].get_ylim()[1] * 0.82, iv.text,
-                       ha="center", va="top", fontsize=8)
+            ax[0].text(iv.midpoint, ax[0].get_ylim()[1] * 0.86, iv.text,
+                       ha="center", va="top", fontsize=11)
         speech = [iv for iv in phone if iv.text.strip() != pc.SIL]
         if speech:
             pad = 0.12

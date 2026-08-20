@@ -175,7 +175,8 @@ def main():
             n, wh = per_phone["normal"][p], per_phone["whisper"][p]
             w.writerow([p, round(n, 1), round(wh, 1), round(wh - n, 1), round(wh / n, 3)])
 
-    fig, ax = plt.subplots(2, 1, figsize=(12, 7.5))
+    plt.rcParams.update({"font.size": 11})
+    fig, ax = plt.subplots(2, 1, figsize=(9.5, 6.0))
     for a, (cond, stem) in zip(ax, CASES):
         snd, grid = spectro[cond]
         spec = snd.to_spectrogram(window_length=0.005, maximum_frequency=8000)
@@ -185,12 +186,12 @@ def main():
         phones = [iv for iv in grid["phone"] if iv.text.strip() != pc.SIL]
         for iv in phones:
             a.axvline(iv.xmin, color="tab:red", lw=0.6, alpha=0.8)
-            a.text(iv.midpoint, 7400, iv.text, ha="center", fontsize=8, color="tab:red")
+            a.text(iv.midpoint, 7350, iv.text, ha="center", fontsize=11, color="tab:red")
         a.axvline(phones[-1].xmax, color="tab:red", lw=0.6, alpha=0.8)
         a.set_xlim(phones[0].xmin - 0.08, phones[-1].xmax + 0.08)
         a.set_ylim(0, 8000)
         a.set_ylabel("frequency (Hz)")
-        a.set_title(f"{cond}: {pc.SENTENCE}", fontsize=10)
+        a.set_title(f"{cond}: {pc.SENTENCE}", fontsize=12)
     ax[1].set_xlabel("time (s)")
     fig.tight_layout()
     fig.savefig(os.path.join(PLOTS, "q2_spectrograms.png"), dpi=160)

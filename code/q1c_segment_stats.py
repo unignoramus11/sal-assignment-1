@@ -79,7 +79,8 @@ def print_summary(name, s):
 
 
 def plot_groups(rows, out_png, tag):
-    fig, ax = plt.subplots(2, 2, figsize=(11, 7))
+    plt.rcParams.update({"font.size": 11})
+    fig, ax = plt.subplots(2, 2, figsize=(9.5, 6.2))
 
     for col, (key, order) in enumerate([("vowel_class", ["vowel", "non-vowel"]),
                                         ("voicing", ["voiced", "unvoiced"])]):
@@ -100,10 +101,9 @@ def plot_groups(rows, out_png, tag):
             a.set_ylabel(label)
             if metric == "energy":
                 a.set_yscale("log")
-            a.set_title(f"{label} by {key.replace('_', ' ')}", fontsize=10)
+            a.set_title(f"{label} by {key.replace('_', ' ')}", fontsize=12)
 
-    fig.suptitle(f"{tag}: per-phoneme averages grouped by class "
-                 f"(bars are group means with SD, dots are individual phonemes)", fontsize=11)
+    fig.suptitle(f"{tag}: per-phoneme averages grouped by class", fontsize=13)
     fig.tight_layout()
     fig.savefig(out_png, dpi=160)
     plt.close(fig)

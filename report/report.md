@@ -62,8 +62,9 @@ window rather than to the signal.
 
 ![Waveform, short-time energy and ZCR with the phoneme boundaries marked](../plots/q1b_energy_zcr.png)
 
-The two measures behave in opposite directions. Energy peaks on the vowels and drops by two
-to three orders of magnitude during stop closures. ZCR is near zero through the voiced
+The two measures behave in opposite directions. Energy peaks on the vowels and drops by
+about three orders of magnitude during stop closures, from a peak frame value of 2.87 to
+1.4e-03 at the quietest point of a closure. ZCR is near zero through the voiced
 portions and rises sharply at exactly four places, namely /s/ at 2.9 s, /θ/ at 3.7 s, /ʃ/ at
 4.0 s and the final /t/ release at 4.4 s.
 
@@ -118,18 +119,20 @@ vowel class is a subset of the voiced class, and the voiced consonants /n/, /b/ 
 carry the vowel-like pattern with them.
 
 **Individual phonemes that do not follow the pattern.** /n/ has an energy of 8.31e-01,
-higher than four of the eight vowels, and the lowest ZCR of any segment at 0.0057. It is
-a voiced non-vowel, so it raises the non-vowel average and lowers the non-vowel ZCR average.
+higher than four of the eight vowels, and a ZCR of 0.0057, among the lowest of any segment.
+It is a voiced non-vowel, so it raises the non-vowel average and lowers the non-vowel ZCR
+average.
 Grouping by voicing rather than by vowel class puts it on the correct side. /b/ likewise
 has a relatively high energy of 1.87e-01 for a stop, because it is only 20 ms long and sits
 between two vowels, so the frames covering it are dominated by the surrounding voicing.
 Among the unvoiced segments, /p/ and /k/ have the lowest energies of all, 7.43e-03 and
 9.16e-03, since both intervals are mostly closure silence.
 
-The clearest single result is the ZCR of /s/ (0.1719) and /ʃ/ (0.1589), which are five to
-ten times any voiced segment. Interestingly /θ/ reaches only 0.0369, well below the other
-two fricatives, because it is much weaker and its frames are partly filled by the low-level
-background rather than by frication.
+The clearest single result is the ZCR of /s/ (0.1719) and /ʃ/ (0.1589). Even the lower of
+the two is 4.9 times the highest ZCR of any voiced segment, and /s/ is 40 times the lowest.
+/θ/ is the exception among the fricatives at 0.0369, well below the other two, because it is
+much weaker and its frames are partly filled by the low-level background rather than by
+frication.
 
 # Question 2
 
