@@ -17,6 +17,13 @@ plots/        figures produced by the analysis scripts
 
 Praat 7.0 and Python 3.12 with numpy, scipy, matplotlib, soundfile and praat-parselmouth.
 
+`run_all.sh` finds Praat on `PATH`, falling back to `/Applications/Praat.app` on macOS. If it
+lives somewhere else, point at it directly:
+
+```sh
+PRAAT=/path/to/praat bash code/run_all.sh
+```
+
 ```sh
 uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python numpy scipy matplotlib soundfile praat-parselmouth

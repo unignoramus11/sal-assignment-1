@@ -4,7 +4,25 @@ set -e
 cd "$(dirname "$0")/.."
 
 PY=.venv/bin/python
-PRAAT="/Applications/Praat.app/Contents/MacOS/Praat"
+# Praat: use $PRAAT if set, else whatever is on PATH, else the usual macOS location.
+if [ -z "${PRAAT:-}" ]; then
+  if command -v praat >/dev/null 2>&1; then
+    PRAAT=$(command -v praat)
+  elif [ -x "/Applications/Praat.app/Contents/MacOS/Praat" ]; then
+    PRAAT="/Applications/Praat.app/Contents/MacOS/Praat"
+  fi
+fi
+if [ ! -x "${PRAAT:-}" ]; then
+  echo "Praat not found. Install it, or point at the executable:" >&2
+  echo "  PRAAT=/path/to/praat bash code/run_all.sh" >&2
+  exit 1
+fi
+if [ ! -x "$PY" ]; then
+  echo "No virtual environment at $PY. Create one first:" >&2
+  echo "  uv venv --python 3.12 .venv" >&2
+  echo "  uv pip install --python .venv/bin/python numpy scipy matplotlib soundfile praat-parselmouth" >&2
+  exit 1
+fi
 
 echo "== hum removal (used for pitch and formants only) =="
 $PY code/preprocess_hum.py
