@@ -23,13 +23,11 @@ all takes. Recording was done under a duvet to damp room reflections.
 Short-time energy and ZCR (Q1) were computed in NumPy with a 20 ms Hamming window and 10 ms
 shift, which at 44.1 kHz is an 882-sample window advancing 441 samples. Pitch (Q5) and
 formants (Q4) were extracted with Praat. Phoneme boundaries (Q1a, Q2) were marked by hand in
-Praat from the waveform and a wideband spectrogram (5 ms window, 0–5 kHz) with glottal
-pulses shown. Stops begin at the onset of closure and the following vowel at the first
-glottal pulse, and fricatives at the onset of frication.
+Praat from the waveform and a wideband spectrogram (5 ms window, 0–5 kHz).
 
 **Mains interference.** All the recordings contain a steady 100 Hz tone, the second harmonic
 of the 50 Hz mains supply. It is present during the silences as well as during speech, and it
-sits close to the speaker's own pitch, so Praat mistakes it for voicing. On the raw whispered
+sits close to my own pitch, so Praat mistakes it for voicing. On the raw whispered
 file Praat reports 18.8% voiced frames, but those frames are spread evenly across the whole
 file instead of being concentrated in the speech, which is what identifies them as
 interference rather than phonation.
@@ -158,7 +156,7 @@ The message is preserved. The whispered recording is intelligible and every phon
 sentence can still be located and labelled, which is why the same 20-phoneme segmentation
 applies to both files.
 
-What survives is everything produced above the larynx. The vocal tract still takes the same
+Everything produced above the larynx survives. The vocal tract still takes the same
 sequence of shapes, so place and manner of articulation are unchanged and the formant
 pattern remains. The spectrograms show the same formant bands in both recordings, produced
 by noise in the whisper instead of by glottal pulses. Total speech duration is almost identical,
@@ -224,17 +222,18 @@ seat/seed.
 
 For "pig" against "big" the primary distinction is the presence of vocal fold vibration
 during and immediately after the closure. In the whisper that cue is gone from both, so a
-listener has to rely on secondary cues, which survive but are weaker.
+listener has to rely on secondary cues, which survive but are much weaker.
 
 - **Voice onset time.** In the recordings here, the release-to-vowel interval is 16 ms for
   /b/ against 20 ms for /p/ in normal speech, but 8 ms against 92 ms in the whisper. The
   difference is larger in the whisper, not smaller, which suggests the aspiration of /p/ is
-  exaggerated when voicing is unavailable to carry the contrast.
+  exaggerated when voicing is unavailable to carry the contrast. I did this myself subconsciously,
+  and it is a common strategy in whispered speech.
 - **Burst strength.** The release of a voiceless stop is typically more forceful.
 - **Preceding vowel duration**, which is the main cue for final voicing contrasts such as
   tap/tab, and is unaffected by whispering.
 
-So the contrast degrades rather than disappearing outright. This is consistent with the
+So the contrast degrades rather than completely disappearing. This is consistent with the
 spectrograms, where the two segments look alike in the low frequencies, which is where
 voicing would show, and differ in the timing and intensity of the release.
 
@@ -286,7 +285,7 @@ reasoning about context. Nothing in the words encodes a request.
 **phonetics**, specifically articulatory phonetics, since the statement describes where an
 articulator is placed rather than any contrastive function.
 
-The description is not accurate for standard English. /t/ in "talk" is _alveolar_, made with
+Side note: The description is not exactly accurate for standard English. /t/ in "talk" is _alveolar_, made with
 the tongue tip at the alveolar ridge behind the teeth, not against the teeth themselves. A
 dental [t̪] does occur in English before a dental fricative, as in "eighth", and is
 characteristic of several varieties including many Indian English accents, but not in
@@ -318,7 +317,8 @@ The two vowels differ in four ways.
   frontness. In "beat" F2 and F3 converge to within 240 Hz, characteristic of a close front
   vowel.
 - **The vowel in "beat" is twice as long.** /iː/ is tense and /ɪ/ lax. The ratio is larger
-  than the usual 1.5:1 because these are isolated words with no following material.
+  than the usual 1.5:1 because these are isolated words with no following material, and I
+  subconsciously held the /iː/ even longer to make the contrast clearer.
 
 F2 in "beat" rises through the vowel rather than holding flat, which is the offglide of the
 diphthongised English /iː/.
@@ -373,7 +373,7 @@ it is also the slowest of the four emotional takes, matching the neutral baselin
 while every other emotion is at least 0.4 s shorter.
 
 The sad delivery is therefore carried by rate and vocal effort, while F0 works against it. A
-description based on pitch alone would misrepresent this recording.
+description based on pitch alone would misrepresent this recording. [Or I am simply bad at acting :(]
 
 **Surprised** has the highest mean F0 at 178.2 Hz, 8.3 semitones above neutral. It also has
 the widest range at 211.7 Hz, the highest single value at 309.3 Hz and the largest SD at
@@ -442,7 +442,7 @@ are 200 Hz apart, four times the bin spacing.
 
 The application chosen is **speech emotion recognition**.
 
-**(a) The application.** Speech emotion recognition (SER) infers a speaker's affective state
+**(a) The application.** Speech emotion recognition (SER) tries to infer a speaker's affective state
 from the speech signal. It is framed either as discrete labels such as anger, happiness,
 sadness and neutral, or as continuous dimensions, usually arousal and valence. The
 dimensional form is often preferred because discrete labels transfer poorly across languages
@@ -504,7 +504,7 @@ combine audio with the recognised text gain substantially on valence and little 
   intended meaning, so detecting it requires both channels plus context. Cultural display
   rules also govern how much emotion is expressed in the first place.
 
-**(d) A limitation.** Systems generalise poorly beyond their training corpus, and the cause is
+**(d) Limitation.** Systems generalise poorly beyond their training corpus, and the cause is
 the data. Emotion cannot be induced on demand reliably or ethically, and there is no ground
 truth beyond annotator agreement, so most corpora use acted speech, with actors reading fixed
 sentences in a target emotion.
@@ -516,7 +516,7 @@ language and cultural variation is also large relative to the emotion effect, an
 inter-annotator agreement is only moderate, which caps the accuracy any system can
 meaningfully claim.
 
-The Q5 recordings show the same problem on a small scale. They were produced deliberately with
+The Q5 recordings show the same problem on a small scale. They were produced deliberately by me with
 the target emotion known in advance, and are almost certainly more distinct from one another
 than the same question asked in each of those states would be. The sad recording is the
 clearest warning against reading too much into any one feature, since its mean F0 moved
